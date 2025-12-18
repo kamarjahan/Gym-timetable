@@ -3,43 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 15, 23, 42;
-}
-
-html {
-  scroll-behavior: smooth;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 12;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
-  font-family: sans-serif;
-  background: #F8FAFC;
-  color: #0F172A;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile */
 }
 
+/* Custom Scrollbar for Pro feel */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #64748B;
-  border-radius: 4px;
-}
-
-/* Market Ticker Animation */
-@keyframes scroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-.animate-ticker {
-  animation: scroll 25s linear infinite;
-  white-space: nowrap;
-  display: inline-block;
-}
-
-/* Pause on hover so people can read it */
-.animate-ticker:hover {
-  animation-play-state: paused;
+  background: #333;
+  border-radius: 10px;
 }
